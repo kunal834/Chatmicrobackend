@@ -6,7 +6,6 @@ import connectDB from "./lib/db.js";
 import Message from "./models/Message.js"; // Use your Model directly here
 
 const app = Express();
-const PORT = 5000;
 
 // 1. Database Connection
 connectDB();
@@ -77,6 +76,6 @@ io.on("connection", (socket) => {
 
 if(process.env.NODE_ENV != "production") {
     server.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
+        console.log(`Server running on port ${process.env.PORT}`);
     });
 }

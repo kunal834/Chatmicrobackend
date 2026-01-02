@@ -14,7 +14,7 @@ const server = http.createServer(app);
 
 // 2. Middleware
 app.use(cors({ origin: process.env.FRONTEND_URL, methods: ["GET", "POST"] }));
-
+const PORT = process.env.PORT || 5000;
 const io = new Server(server, {
     cors: {
         origin: process.env.FRONTEND_URL,
@@ -76,6 +76,6 @@ io.on("connection", (socket) => {
 
 if(process.env.NODE_ENV != "production") {
     server.listen(PORT, () => {
-        console.log(`Server running on port ${process.env.PORT}`);
+        console.log(`Server running on port ${PORT}`);
     });
 }
